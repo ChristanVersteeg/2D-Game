@@ -1,42 +1,46 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI : MonoBehaviour
+namespace Algo
 {
-    private static UI singleton;
 
-    public Text scoreText;
-    public GameObject panel;
-    public Text panelScoreText;
-    public Text defeatText;
-    public Text victoryText;
-
-    private void Awake()
+    public class UI : MonoBehaviour
     {
-        singleton = this;
-    }
+        private static UI singleton;
 
-    private void Update()
-    {
-        scoreText.text = Player.score.ToString();
-    }
+        public Text scoreText;
+        public GameObject panel;
+        public Text panelScoreText;
+        public Text defeatText;
+        public Text victoryText;
 
-    public static void ShowVictoryPanel()
-    {
-        singleton.panel.SetActive(true);
-        singleton.victoryText.gameObject.SetActive(true);
-        singleton.panelScoreText.text = Player.score.ToString();
-    }
+        private void Awake()
+        {
+            singleton = this;
+        }
 
-    public static void ShowDefeatPanel()
-    {
-        singleton.panel.SetActive(true);
-        singleton.defeatText.gameObject.SetActive(true);
-        singleton.panelScoreText.text = Player.score.ToString();
-    }
+        private void Update()
+        {
+            scoreText.text = Player.score.ToString();
+        }
 
-    public void OnClickRestart()
-    {
-        Player.Restart();
+        public static void ShowVictoryPanel()
+        {
+            singleton.panel.SetActive(true);
+            singleton.victoryText.gameObject.SetActive(true);
+            singleton.panelScoreText.text = Player.score.ToString();
+        }
+
+        public static void ShowDefeatPanel()
+        {
+            singleton.panel.SetActive(true);
+            singleton.defeatText.gameObject.SetActive(true);
+            singleton.panelScoreText.text = Player.score.ToString();
+        }
+
+        public void OnClickRestart()
+        {
+            Player.Restart();
+        }
     }
 }

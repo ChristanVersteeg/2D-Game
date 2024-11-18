@@ -2,40 +2,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour
+namespace Algo
 {
-    public static List<Square> squares;
-
-    public static int score = 0;
-
-    private void Awake()
+    public class Player : MonoBehaviour
     {
-        squares = new List<Square>();
-    }
+        public static List<Square> squares;
 
-    private void Update()
-    {
-        if (squares.Count == 0)
+        public static int score = 0;
+
+        private void Awake()
         {
-            Victory();
+            squares = new List<Square>();
         }
-    }
 
-    public static void Defeat()
-    {
-        score = 0;
-        UI.ShowDefeatPanel();
-    }
+        private void Update()
+        {
+            if (squares.Count == 0)
+            {
+                Victory();
+            }
+        }
 
-    public static void Victory()
-    {
-        UI.ShowVictoryPanel();
-    }
+        public static void Defeat()
+        {
+            score = 0;
+            UI.ShowDefeatPanel();
+        }
 
-    public static void Restart()
-    {
-        int index = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(index);
-    }
+        public static void Victory()
+        {
+            UI.ShowVictoryPanel();
+        }
 
+        public static void Restart()
+        {
+            int index = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(index);
+        }
+
+    }
 }
