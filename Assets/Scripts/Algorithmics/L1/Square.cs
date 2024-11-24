@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Algo
+namespace OldAlgo
 {
     public class Square : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Algo
+namespace OldAlgo
 {
 
     public class UI : MonoBehaviour

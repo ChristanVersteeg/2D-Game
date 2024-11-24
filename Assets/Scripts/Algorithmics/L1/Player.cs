@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Algo
+namespace OldAlgo
 {
     public class Player : MonoBehaviour
     {
