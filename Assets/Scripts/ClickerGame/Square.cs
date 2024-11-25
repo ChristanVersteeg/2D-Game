@@ -1,53 +1,56 @@
 using UnityEngine;
 
-public class Square : MonoBehaviour
+namespace ClickerGame
 {
-    [SerializeField] private Vector2 targetPosition;
-    [SerializeField] private bool isTrap;
-    [SerializeField] private float stepLength;
-
-
-    private Vector2 RandomiseVector()
+    public class Square : MonoBehaviour
     {
-        Vector2 randomVector;
+        [SerializeField] private Vector2 targetPosition;
+        [SerializeField] private bool isTrap;
+        [SerializeField] private float stepLength;
 
-        randomVector.x = Random.Range(-6, 6);
-        randomVector.y = Random.Range(-3, 3);
 
-        return randomVector;
-    }
-
-    private void Start()
-    {
-        targetPosition = RandomiseVector();
-
-        if (!isTrap)
+        private Vector2 RandomiseVector()
         {
-            Player.squares.Add(this);
+            Vector2 randomVector;
+
+            randomVector.x = Random.Range(-6, 6);
+            randomVector.y = Random.Range(-3, 3);
+
+            return randomVector;
         }
-    }
 
-    private void Update()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, stepLength * Time.deltaTime);
-
-        if ((Vector2)transform.position == targetPosition)
+        private void Start()
         {
             targetPosition = RandomiseVector();
+
+            if (!isTrap)
+            {
+                Player.squares.Add(this);
+            }
         }
-    }
 
-    private void Catch()
-    {
-        Player.score++;
-    }
-
-    private void OnMouseDown()
-    {
-        if (isTrap)
+        private void Update()
         {
-            Player.Defeat();
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, stepLength * Time.deltaTime);
+
+            if ((Vector2)transform.position == targetPosition)
+            {
+                targetPosition = RandomiseVector();
+            }
         }
-        else Catch();
+
+        private void Catch()
+        {
+            Player.score++;
+        }
+
+        private void OnMouseDown()
+        {
+            if (isTrap)
+            {
+                Player.Defeat();
+            }
+            else Catch();
+        }
     }
 }

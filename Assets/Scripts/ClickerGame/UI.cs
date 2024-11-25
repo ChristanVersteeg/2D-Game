@@ -1,18 +1,22 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI : MonoBehaviour
+namespace ClickerGame
 {
 
-    [SerializeField] private Text scoreText;
-
-    private void Start()
+    public class UI : MonoBehaviour
     {
 
-    }
+        [SerializeField] private Text scoreText;
 
-    private void Update()
-    {
-        scoreText.text = Player.score.ToString();
+        private void Start()
+        {
+
+        }
+
+        private void Update()
+        {
+            scoreText.text = Player.score.ToString();
+        }
     }
 }

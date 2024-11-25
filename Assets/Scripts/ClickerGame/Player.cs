@@ -1,23 +1,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+namespace ClickerGame
 {
-    public static int score;
-    public static List<Square> squares = new();
-    public static void Defeat()
+    public class Player : MonoBehaviour
     {
-        score = 0;
-    }
+        public static int score;
+        public static List<Square> squares = new();
+        public static void Defeat()
+        {
+            score = 0;
+        }
 
 
-    private void Start()
-    {
-    }
+        private void Start()
+        {
+        }
 
-    // Update is called once per frame
-    private void Update()
-    {
+        // Update is called once per frame
+        private void Update()
+        {
 
+        }
     }
 }
