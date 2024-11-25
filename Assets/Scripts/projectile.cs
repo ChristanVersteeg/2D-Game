@@ -18,7 +18,7 @@ public class projectile : MonoBehaviour
     {
         if (!collision.CompareTag("Player"))
         {
-            Destroy(collision);
+            Destroy(collision.gameObject);
         }
     }
 }
