@@ -1,20 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 
-public class item : MonoBehaviour
+public class Item : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D Collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Collision.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
-            playerSpaceInvader player = Collision.GetComponent<playerSpaceInvader>();
+            Player player = collision.GetComponent<Player>();
             player.points++;
             Destroy(gameObject);
-
-
         }
-
-
     }
 }

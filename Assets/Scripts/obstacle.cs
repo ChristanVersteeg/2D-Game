@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class obstacle : MonoBehaviour
+public class Obstacle : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D Collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Collision.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
-
+            Destroy(gameObject);
         }
-    
-       
     }
-
-
 }

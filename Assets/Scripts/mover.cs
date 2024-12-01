@@ -2,20 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class mover : MonoBehaviour
+public class Mover : MonoBehaviour
 {
     [SerializeField] public float speed;
 
-
-
-     private void Start()
+    private void Start()
     {
-        Destroy(gameObject, 5f); 
+        Destroy(gameObject, 5f);
     }
-
 
     void Update()
     {
-       transform.position = (Vector2)transform.position + Vector2.down * speed * Time.deltaTime;
+        transform.position = (Vector2)transform.position + Vector2.down * speed * Time.deltaTime;
     }
 }

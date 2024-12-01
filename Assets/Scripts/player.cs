@@ -2,28 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    public static int score;
-    public static List<Square> squares = new();
-    public static void Defeat()
-    {
-           score = 0;
+    public int points;
 
-    
-    
-    }
-
-
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        Move();
+    }
+
+    private void Move()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            Vector2 mousePos = Input.mousePosition;
+            Vector2 cameraPos = Camera.main.ScreenToWorldPoint(mousePos);
+            transform.position = cameraPos;
+        }
     }
 }
