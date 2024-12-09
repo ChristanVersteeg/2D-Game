@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Tags;
 using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
     [SerializeField] public float speed;
 
-    private void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject, 5f);
+        if (collision.CompareTag(Tag.OutOfBounds))
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Update()
