@@ -13,18 +13,18 @@ public class Spawner : MonoBehaviour
     }
 
     private IEnumerator Delay()
+{
+    while (true)
     {
-        while (true)
-        {
-            Spawn();
-            yield return new WaitForSeconds(1);
-        }
+        Spawn();
+        yield return new WaitForSeconds(1);
     }
+}
 
-    private void Spawn()
-    {
-        float randomX = Random.Range(leftBorder.position.x, rightBorder.position.x);
+private void Spawn()
+{
+    float randomX = Random.Range(leftBorder.position.x, rightBorder.position.x);
+    float randomRotation = Random.Range(0, 360);
 
-        Instantiate(obstacle, new Vector2(randomX, transform.position.y), Quaternion.identity);
-    }
+    Instantiate(obstacle, new Vector2(randomX, transform.position.y), Quaternion.Euler(0, 0, randomRotation));
 }
