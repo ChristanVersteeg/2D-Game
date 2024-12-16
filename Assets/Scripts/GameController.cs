@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
     public static float gameSpeed;
+    public static bool hasReachedMax;
 
      [Range(0, gameSpeedMax)]
      [SerializeField] private float gameSpeedRegulator;
@@ -17,9 +19,16 @@ public class GameController : MonoBehaviour
         {
             gameSpeedRegulator += speedRate * Time.deltaTime;
         }
-        gameSpeed = gameSpeedRegulator;
-    }
+        else
+        {
 
+            hasReachedMax = true;   
+
+        }
+        gameSpeed = gameSpeedRegulator;
+        
+    }
+    
 
 
 
