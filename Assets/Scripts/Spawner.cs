@@ -18,8 +18,13 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
+            float delay = 1;
+            if (GameController.hasReachedMax)
+            {
+                delay = 0.5f;
+            }
             Spawn();
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(delay);
         }
     }
 
