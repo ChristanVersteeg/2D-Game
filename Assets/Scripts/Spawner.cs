@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
@@ -21,12 +23,28 @@ public class Spawner : MonoBehaviour
         }
     }
 
+    private GameObject ReturnRandomObject()
+    {
+        int randomObjectIndex = Random.Range(0, 3);
+        GameObject randomObject;
+        if (randomObjectIndex <= 1)
+        {
+            randomObject = obstacle;
+        }
+        else
+        {
+            randomObject = item;
+        }
+        return randomObject;
+    }
+
     private void Spawn()
     {
         float randomX = Random.Range(leftBorder.position.x, rightBorder.position.x);
         int randomRotation = Random.Range(0, 360);
         float randomScale = Random.Range(1, 4);
-        GameObject spawnedObject = Instantiate(obstacle, new Vector2(randomX, transform.position.y), Quaternion.Euler(0, 0, randomRotation));
+
+        GameObject spawnedObject = Instantiate(ReturnRandomObject(), new Vector2(randomX, transform.position.y), Quaternion.Euler(0, 0, randomRotation));
         spawnedObject.transform.localScale = Vector3.one * (randomScale / 10);
     }
 }
