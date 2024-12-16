@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public static float gameSpeed;
+    public static bool hasReachedMax;
 
     private const float gameSpeedMax = 5;
     [SerializeField, Range(0, gameSpeedMax)] public float gameSpeedRegulator;
@@ -13,6 +14,10 @@ public class GameController : MonoBehaviour
         if (gameSpeedRegulator <= gameSpeedMax)
         {
             gameSpeedRegulator += speedRate * Time.deltaTime;
+        }
+        else
+        {
+            hasReachedMax = true;
         }
         gameSpeed = gameSpeedRegulator;
     }
