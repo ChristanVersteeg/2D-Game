@@ -42,7 +42,7 @@ public class Spawner : MonoBehaviour
     {
         float randomX = Random.Range(leftborder.position.x, rightborder.position.x);
         int randomY = Random.Range(0, 360);
-        float randomScale = Random.Range(1, 4);
+        float randomScale = Random.Range(2, 4);
        
         GameObject spawnedObject = Instantiate(ReturnRandomObject(), new Vector2(randomX, transform.position.y), Quaternion.Euler(0, 0, randomY));
         spawnedObject.transform.localScale = Vector3.one * (randomScale / 10);
