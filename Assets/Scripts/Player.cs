@@ -8,6 +8,9 @@ public class Player : MonoBehaviour
 {
     public int points;
     [SerializeField] private Canvas UI;
+    [SerializeField] private GameObject deathAnimation;
+   
+
     public static event Action<int> OnGameOver;
    
     void Update()
@@ -31,7 +34,13 @@ public class Player : MonoBehaviour
         if (collision.CompareTag(Tag.Obstacle))
         {
             UI.enabled = true;
+
             OnGameOver(points);
+
+            deathAnimation.SetActive(true);
+            deathAnimation.transform.parent = null;
+
+            Destroy(gameObject);
 
         }
     }

@@ -47,4 +47,22 @@ public class Spawner : MonoBehaviour
         GameObject spawnedObject = Instantiate(ReturnRandomObject(), new Vector2(randomX, transform.position.y), Quaternion.Euler(0, 0, randomY));
         spawnedObject.transform.localScale = Vector3.one * (randomScale / 10);
     }
+
+
+
+
+    private void DeleteSpawner(int _)
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnEnable()
+    {
+        Player.OnGameOver += DeleteSpawner;
+    }
+
+    private void OnDisable()
+    {
+        Player.OnGameOver -= DeleteSpawner;
+    }
 }
