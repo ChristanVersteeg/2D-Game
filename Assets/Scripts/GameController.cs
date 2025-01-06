@@ -4,6 +4,8 @@ public class GameController : MonoBehaviour
 {
     public static float gameSpeed;
     public static bool hasReachedMax;
+    private bool stop;
+
 
     private const float gameSpeedMax = 5;
     [SerializeField, Range(0, gameSpeedMax)] public float gameSpeedRegulator;
@@ -11,6 +13,8 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
+        if (stop) return;
+
         if (gameSpeedRegulator <= gameSpeedMax)
         {
             gameSpeedRegulator += speedRate * Time.deltaTime;
@@ -20,5 +24,21 @@ public class GameController : MonoBehaviour
             hasReachedMax = true;
         }
         gameSpeed = gameSpeedRegulator;
+    }
+
+    private void StopMovement(int _)
+    {
+        stop = true;
+        gameSpeed = 0;
+    }
+
+    private void OnEnable()
+    {
+        Player.OnGameOver += StopMovement;
+    }
+
+    private void OnDisable()
+    {
+        Player.OnGameOver -= StopMovement;
     }
 }

@@ -6,7 +6,9 @@ public class Player : MonoBehaviour
 {
     public int points;
     [SerializeField] private Canvas UI;
+    [SerializeField] private GameObject deathAnimation;
     public static event Action<int> OnGameOver;
+
 
     private void Update()
     {
@@ -15,10 +17,6 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        Vector2 vector1 = Vector2.one;
-        Vector2 vector2 = Vector2.one * 2;
-        Vector2 vector3 = vector1 / vector2;
-
         if (Input.GetMouseButton(0))
         {
             Vector2 mousePos = Input.mousePosition;
@@ -32,7 +30,14 @@ public class Player : MonoBehaviour
         if (collision.CompareTag(Tag.Obstacle))
         {
             UI.enabled = true;
+
             OnGameOver(points);
+
+            deathAnimation.SetActive(true);
+
+            deathAnimation.transform.parent = null;
+
+            Destroy(gameObject);
         }
     }
 }
