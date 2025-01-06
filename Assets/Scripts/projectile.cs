@@ -7,7 +7,8 @@ public class Projectile : MonoBehaviour
     {
         if (collision.CompareTag(Tag.Obstacle))
         {
-            Destroy(collision.gameObject);
+            Obstacle obstacle = collision.GetComponent<Obstacle>();
+            obstacle.Destroy();
             Destroy(gameObject);
         }
     }
