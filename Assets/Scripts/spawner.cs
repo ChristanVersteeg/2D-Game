@@ -17,16 +17,10 @@ public class Spawner : MonoBehaviour
     }
     private IEnumerator Delay()
     {
-
         while (true)
         {
-            float delay = 1;
-            if(GameController.hasReachedMax)
-            {
-                delay = 0.5f;
-            }
             spawn();
-            yield return new WaitForSeconds(delay);
+            yield return new WaitForSeconds(1);
         }
     }
     private GameObject ReturnRandomObject()
