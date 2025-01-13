@@ -18,6 +18,8 @@ public class ShieldBuff : MonoBehaviour
         {
             shielded = true;
             transform.parent = collision.transform;
+            transform.position = collision.transform.GetChild(0).transform.position;
+
             Destroy(GetComponent<Mover>());
             Destroy(GetComponent<BoxCollider2D>());
             Invoke(nameof(RevokeShield), 7);
