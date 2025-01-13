@@ -8,13 +8,15 @@ using System.Runtime.InteropServices.WindowsRuntime;
 public class Spawner : MonoBehaviour
 
 {
-    [SerializeField] private GameObject obstacle, item, powerUp;
+    [SerializeField] private GameObject obstacle, item, powerUp, shieldBuff;
     [SerializeField] private Transform leftborder, rightborder;
 
     private void Start()
     {
         StartCoroutine(nameof(Delay));
         StartCoroutine(nameof(powerUpDelay));
+        StartCoroutine(nameof(ShieldDelay));
+
     }
 
     private IEnumerator Delay()
@@ -31,10 +33,19 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            spawn(true);
+            spawn(true, powerUp);
             yield return new WaitForSeconds(30);
         }
 
+    }
+
+    private IEnumerator ShieldDelay()
+    {
+        while (true)
+        {
+            spawn(true, shieldBuff);
+            yield return new WaitForSeconds(40);
+        }
     }
 
     private GameObject ReturnRandomObject()
@@ -53,7 +64,7 @@ public class Spawner : MonoBehaviour
         return randomObject;
     }
 
-    private void spawn(bool isPowerUp = false)
+    private void spawn(bool isPowerUp = false, GameObject powerup = null)
     {
         float randomX = Random.Range(leftborder.position.x, rightborder.position.x);
         int randomY = Random.Range(0, 360);
