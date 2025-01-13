@@ -8,13 +8,15 @@ using System.Runtime.InteropServices.WindowsRuntime;
 public class Spawner : MonoBehaviour
 
 {
-    [SerializeField] private GameObject obstacle, item;
+    [SerializeField] private GameObject obstacle, item, powerUp;
     [SerializeField] private Transform leftborder, rightborder;
 
     private void Start()
     {
         StartCoroutine(nameof(Delay));
+        StartCoroutine(nameof(powerUpDelay));
     }
+
     private IEnumerator Delay()
     {
         while (true)
@@ -22,7 +24,19 @@ public class Spawner : MonoBehaviour
             spawn();
             yield return new WaitForSeconds(1);
         }
+
     }
+
+    private IEnumerator powerUpDelay()
+    {
+        while (true)
+        {
+            spawn(true);
+            yield return new WaitForSeconds(30);
+        }
+
+    }
+
     private GameObject ReturnRandomObject()
     {
         int randomObjectIndex = Random.Range(0, 3);
@@ -38,18 +52,27 @@ public class Spawner : MonoBehaviour
         }
         return randomObject;
     }
-    private void spawn()
+
+    private void spawn(bool isPowerUp = false)
     {
         float randomX = Random.Range(leftborder.position.x, rightborder.position.x);
         int randomY = Random.Range(0, 360);
         float randomScale = Random.Range(2, 4);
+
+        if (isPowerUp)
+        {
+            Instantiate(powerUp, new Vector2(randomX, transform.position.y), Quaternion.identity);
+        }
+        else
+        {
+            GameObject spawnedObject = Instantiate(ReturnRandomObject(), new Vector2(randomX, transform.position.y), Quaternion.Euler(0, 0, randomY));
+            spawnedObject.transform.localScale = Vector3.one * (randomScale / 10);
+        }
+        
+
        
-        GameObject spawnedObject = Instantiate(ReturnRandomObject(), new Vector2(randomX, transform.position.y), Quaternion.Euler(0, 0, randomY));
-        spawnedObject.transform.localScale = Vector3.one * (randomScale / 10);
+
     }
-
-
-
 
     private void DeleteSpawner(int _)
     {
