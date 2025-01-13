@@ -1014,6 +1014,7 @@ MonoBehaviour:
   obstacle: {fileID: 4078733794683191088, guid: 22c28d9659557d24cbfd2b6a1cd578a5, type: 3}
   item: {fileID: 3773585193891631890, guid: 31950bbc2a7adf3469e9e35805b51613, type: 3}
   powerUp: {fileID: 6157270821925980424, guid: d936c1a4d82bb9d429eaed07cc20167c, type: 3}
+  shieldBuff: {fileID: 180205103344801679, guid: 84b3af1317cc53b4eab70c61ce2a050f, type: 3}
   leftBorder: {fileID: 1226847100}
   rightBorder: {fileID: 847118706}
 --- !u!4 &1866374582

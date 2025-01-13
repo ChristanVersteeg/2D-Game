@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private GameObject obstacle, item, powerUp;
+    [SerializeField] private GameObject obstacle, item, powerUp, shieldBuff;
 
     [SerializeField] private Transform leftBorder, rightBorder;
 
@@ -13,6 +13,7 @@ public class Spawner : MonoBehaviour
     {
         StartCoroutine(nameof(Delay));
         StartCoroutine(nameof(PowerUpDelay));
+        StartCoroutine(nameof(ShieldDelay));
     }
 
     private IEnumerator Delay()
@@ -33,8 +34,17 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            Spawn(true);
+            Spawn(true, powerUp);
             yield return new WaitForSeconds(30);
+        }
+    }
+
+    private IEnumerator ShieldDelay()
+    {
+        while (true)
+        {
+            Spawn(true, shieldBuff);
+            yield return new WaitForSeconds(15);
         }
     }
 
@@ -53,7 +63,7 @@ public class Spawner : MonoBehaviour
         return randomObject;
     }
 
-    private void Spawn(bool isPowerUp = false)
+    private void Spawn(bool isPowerUp = false, GameObject powerUp = null)
     {
         float randomX = Random.Range(leftBorder.position.x, rightBorder.position.x);
         int randomRotation = Random.Range(0, 360);
