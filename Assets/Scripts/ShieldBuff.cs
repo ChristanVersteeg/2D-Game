@@ -20,7 +20,7 @@ public class ShieldBuff : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(Tag.Player)) ;
+        if (collision.CompareTag(Tag.Player))
         {
             shielded = true ;
             transform.parent = collision.transform;

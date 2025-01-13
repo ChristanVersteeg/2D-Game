@@ -72,7 +72,7 @@ public class Spawner : MonoBehaviour
 
         if (isPowerUp)
         {
-            Instantiate(powerUp, new Vector2(randomX, transform.position.y), Quaternion.identity);
+            Instantiate(powerup, new Vector2(randomX, transform.position.y), Quaternion.identity);
         }
         else
         {
