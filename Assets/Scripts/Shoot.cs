@@ -5,12 +5,13 @@ public class Shoot : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform bulletsParent;
-    [SerializeField] private float shootDelay;
+    [SerializeField] public float shootDelay;
+
     private bool cooldown;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !cooldown)
+        if (Input.GetKey(KeyCode.Space) && !cooldown)
         {
             Fire();
             StartCoroutine(nameof(ShootDelay));
@@ -28,5 +29,16 @@ public class Shoot : MonoBehaviour
         cooldown = true;
         yield return new WaitForSeconds(shootDelay);
         cooldown = false;
+    }
+
+    public void StartBuff()
+    {
+        StartCoroutine(nameof(BuffDuration));
+    }
+
+    private IEnumerator BuffDuration()
+    {
+        yield return new WaitForSeconds(10);
+        shootDelay *= PowerUp.powerUpStrength;
     }
 }
