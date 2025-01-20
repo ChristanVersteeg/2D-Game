@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Item
   - Obstacle
-  - outofbouche
+  - OutOfBounds
   layers:
   - Default
   - TransparentFX
