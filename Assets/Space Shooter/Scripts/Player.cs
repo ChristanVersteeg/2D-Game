@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
     {
         if (collision.CompareTag(Tag.Obstacle))
         {
+            if (ShieldBuff.shielded) return;
+
             UI.enabled = true;
 
             OnGameOver(points);
