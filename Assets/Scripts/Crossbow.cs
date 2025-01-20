@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Crossbow : MonoBehaviour
 {
+    [SerializeField] private float fireRate;
     [SerializeField] private GameObject arrow;
     private bool cooldown;
 
@@ -37,7 +38,7 @@ public class Crossbow : MonoBehaviour
     private IEnumerator ShootCooldown()
     {
         cooldown = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(fireRate);
         cooldown = false;
     }
 }

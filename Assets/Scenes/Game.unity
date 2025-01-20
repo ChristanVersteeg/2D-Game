@@ -6583,6 +6583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c4e2f73d7301b4ea9047b2afd375b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireRate: 0.1
   arrow: {fileID: 7494166542017260927, guid: 481c7eab216f41347b70552c38daee24, type: 3}
 --- !u!1 &1502290961
 GameObject:
