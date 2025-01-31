@@ -1,0 +1,43 @@
+using System.Collections;
+using UnityEditor;
+using UnityEngine;
+
+public class Enemy : MonoBehaviour
+{
+    [SerializeField] private int health;
+    [SerializeField] private float Speed;
+    [SerializeField] private float attackCooldown;
+    private bool attackState;
+    public void TakeDamage()
+    {
+        health -= 1;
+
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private IEnumerator Attack()
+    {
+        while (true)
+        {
+            Corn.Instance.Takedamage();
+            yield return new WaitForSeconds(attackCooldown);
+        }
+    }
+
+
+    private void Update()
+    {
+        if(transform.position.x >Corn.Instance.transform.position.x)
+        {
+            transform.position += -transform.right * Speed * Time.deltaTime;
+        }
+        else if(!attackState)
+        {
+            attackState = true;
+            StartCoroutine(Attack());
+        }
+    }
+}

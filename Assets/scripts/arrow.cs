@@ -14,4 +14,13 @@ public class Arrow : MonoBehaviour
     {
         transform.position += speed * Time.deltaTime * transform.up;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+     if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<Enemy>().TakeDamage();
+        }
+    }
+
 }
