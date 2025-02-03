@@ -20,6 +20,7 @@ public class Arrow : MonoBehaviour
      if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<Enemy>().TakeDamage();
+            Destroy(gameObject);
         }
     }
 

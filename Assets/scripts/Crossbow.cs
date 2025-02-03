@@ -41,7 +41,7 @@ public class Crossbow : MonoBehaviour
     private IEnumerator ShootCooldown()
     {
         cooldown = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.7f);
         cooldown = false;
     }
 
