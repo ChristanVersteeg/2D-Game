@@ -19,6 +19,8 @@ public class Arrow : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             collision.GetComponent<Enemy>().TakeDamage();
+        Destroy(gameObject);
         }
+
     }
 }
