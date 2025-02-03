@@ -31,6 +31,7 @@ public class spawner : MonoBehaviour
             yield return new WaitForSeconds(randspawntime);
             float randy = Random.Range(BottomBorder.position.y, Topborder.position.y);
             Instantiate(enemy, new Vector3(transform.position.x, randy, 0), Quaternion.identity);
+            spawncount++;
         }
     }
 }
