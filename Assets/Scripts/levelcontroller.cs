@@ -1,19 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
-    [SerializeField] Spawner spawner;
+    [SerializeField] private Spawner spawner;
     public static int level;
 
-    void Start()
+    private void Start()
     {
 
     }
 
-    void Update()
+    private void Update()
     {
+
     }
 
     private void Victory()
