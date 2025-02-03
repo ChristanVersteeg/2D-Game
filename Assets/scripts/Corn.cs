@@ -1,11 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Corn : MonoBehaviour
 {
+    public static Action onCornDestroyed;
     public static Corn Instance;
-    [SerializeField] private int health;
+    public int health;
     [SerializeField] private GameObject cornField;
 
     private void Awake()
@@ -23,6 +25,7 @@ public class Corn : MonoBehaviour
         {
             Destroy(cornField);
             transform.position = Vector3.one * -1000;
+            onCornDestroyed();
         }
 
       
