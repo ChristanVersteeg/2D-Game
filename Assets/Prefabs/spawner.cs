@@ -9,11 +9,20 @@ public class spawner : MonoBehaviour
     [SerializeField] private GameObject Enemy;
     [SerializeField] private float minSpawnTime, maxSpawnTime;
     [SerializeField] private int maxSpawnCount;
+    [SerializeField] private int maxSpawnAddPerLevel;
+    public static bool allEnemiesSpawned;
     // Start is called before the first frame update
-    private void Start()
+  public void  StartSpawning()
     {
         StartCoroutine(Spawn());
     }
+
+    private void Start()
+    {
+        StartSpawning();
+    }
+
+
 
     // Update is called once per frame
     private void Update()
@@ -22,7 +31,11 @@ public class spawner : MonoBehaviour
     }
     private IEnumerator Spawn()
     {
+        maxSpawnCount += maxSpawnAddPerLevel * Levelcontroller.level;
+
         int spawnCount = 0;
+
+        allEnemiesSpawned = false;
 
         while (spawnCount < maxSpawnCount)  
         {
@@ -32,6 +45,8 @@ public class spawner : MonoBehaviour
             Instantiate(Enemy, new Vector3(transform.position.x, randY, 0), Quaternion.identity);
             spawnCount++;
         }
+
+        allEnemiesSpawned = true;
     }
 }
 
