@@ -7,7 +7,7 @@ public class Corn : MonoBehaviour
 {
     public static Action OnCornDestroyed;
     public static Corn Instance;
-    [SerializeField] private int health;
+    public int health;
     [SerializeField] private GameObject cornField;
 
 

@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float attackCooldown;
     private bool attackState;
-    public static event Action OnLastEnemyKilled;
+    public static event Action OnLastEnemyKilled, OnEnemyKilled, OnEnemyAttack;
     public static List<GameObject> enemies = new();
 
     private void Start()
@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
                 OnLastEnemyKilled();
             }
             enemies.Remove(gameObject);
+            OnEnemyKilled();
             Destroy(gameObject);
         }
     }
@@ -37,6 +38,7 @@ public class Enemy : MonoBehaviour
         while (true)
         {
             Corn.Instance.TakeDamage();
+            OnEnemyAttack();
             yield return new WaitForSeconds(attackCooldown);
         }
     }
