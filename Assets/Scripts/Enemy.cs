@@ -1,5 +1,6 @@
+using System;
 using System.Collections;
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -8,6 +9,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float attackCooldown;
     private bool attackState;
+    public static event Action OnLastEnemyKilled;
+    public static List<GameObject> enemies = new();
+
+    private void Start()
+    {
+        enemies.Add(gameObject);
+    }
 
     public void TakeDamage()
     {
@@ -15,6 +23,11 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
+            if (Spawner.allEnemiesSpawned && enemies.Count == 1)
+            {
+                OnLastEnemyKilled();
+            }
+            enemies.Remove(gameObject);
             Destroy(gameObject);
         }
     }

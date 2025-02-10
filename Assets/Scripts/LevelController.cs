@@ -19,6 +19,8 @@ public class LevelController : MonoBehaviour
     private void Victory()
     {
         level += 1;
+        print("You won the level!");
+        spawner.StartSpawning();
     }
 
     private void Defeat()
@@ -30,10 +32,12 @@ public class LevelController : MonoBehaviour
     private void OnEnable()
     {
         Corn.OnCornDestroyed += Defeat;
+        Enemy.OnLastEnemyKilled += Victory;
     }
 
     private void OnDisable()
     {
         Corn.OnCornDestroyed -= Defeat;
+        Enemy.OnLastEnemyKilled -= Victory;
     }
 }

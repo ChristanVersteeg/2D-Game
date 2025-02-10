@@ -5420,6 +5420,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1272238274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1272238276}
+  - component: {fileID: 1272238275}
+  m_Layer: 0
+  m_Name: LevelController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1272238275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272238274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb8a6f6b3859efc41b91e251cc9c062d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
+--- !u!4 &1272238276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272238274}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 341.29993, y: 2529.5352, z: -58.201977}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1283909286
 GameObject:
   m_ObjectHideFlags: 0
@@ -7940,9 +7985,10 @@ MonoBehaviour:
   topBorder: {fileID: 1307968199}
   bottomBorder: {fileID: 1703043177}
   enemy: {fileID: 1133080268989400, guid: e06fa957b3f347a44852013ad8ac0b88, type: 3}
-  minSpawnTime: 0.5
-  maxSpawnTime: 1.5
+  minSpawnTime: 1
+  maxSpawnTime: 3
   maxSpawnCount: 5
+  maxSpawnAddPerLevel: 0
 --- !u!4 &1804034645
 Transform:
   m_ObjectHideFlags: 0
@@ -8808,3 +8854,4 @@ SceneRoots:
   - {fileID: 1441046972}
   - {fileID: 871073027}
   - {fileID: 1804034645}
+  - {fileID: 1272238276}
