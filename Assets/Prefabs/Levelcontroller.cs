@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Levelcontroller : MonoBehaviour
+
 {
     [SerializeField] spawner spawner;
+    [SerializeField] private GameObject passed, defeat;
     public static int level;
     // Start is called before the first frame update
     void Start()
@@ -22,13 +24,14 @@ public class Levelcontroller : MonoBehaviour
     {
         level += 1;
         print("Victory zawg");
-        spawner.StartSpawning();
+        passed.SetActive(true);
     }
 
     private void Defeat()
     {
         level = 1;
         print("get clapped lil bro");
+        defeat.SetActive(true);
     }
 
     private void OnEnable()

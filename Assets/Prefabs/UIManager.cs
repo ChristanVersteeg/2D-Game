@@ -8,7 +8,7 @@ using Microsoft.Win32.SafeHandles;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI health, level, crystals;
-    private int healthCount, levelCount, crystalCount;
+    public int healthCount, levelCount, crystalCount;
 
 
     private void DecrementHealth()

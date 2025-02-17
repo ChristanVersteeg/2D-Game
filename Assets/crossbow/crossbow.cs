@@ -7,6 +7,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class crossbow : MonoBehaviour
 {
     [SerializeField] private GameObject arrow;
+    [SerializeField] public float fireRate; 
     private bool cooldown;
     void Start()
     {
@@ -39,7 +40,7 @@ public class crossbow : MonoBehaviour
     private IEnumerator Shootcooldown()
     {
         cooldown = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(fireRate);
         cooldown = false;
     }
 }
