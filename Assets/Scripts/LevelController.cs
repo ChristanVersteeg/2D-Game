@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     [SerializeField] private Spawner spawner;
+    [SerializeField] private GameObject passed, defeat;
     public static int level;
 
     private void Start()
@@ -20,13 +21,14 @@ public class LevelController : MonoBehaviour
     {
         level += 1;
         print("You won the level!");
-        spawner.StartSpawning();
+        passed.SetActive(true);
     }
 
     private void Defeat()
     {
         level = 1;
         print("You have been defeated!");
+        defeat.SetActive(true);
     }
 
     private void OnEnable()
