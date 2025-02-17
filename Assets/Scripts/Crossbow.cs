@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Crossbow : MonoBehaviour
 {
-    [SerializeField] private float fireRate;
+    [SerializeField] public float fireRate;
     [SerializeField] private GameObject arrow;
     private bool cooldown;
 

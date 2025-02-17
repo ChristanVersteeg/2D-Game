@@ -6,7 +6,7 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI health, level, crystals;
-    private int crystalCount;
+    public int crystalCount;
 
     private void DecrementHealth()
     {

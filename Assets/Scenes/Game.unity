@@ -915,6 +915,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &189136534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3342282932532863900, guid: 0a3ed495eaae44c4ca79a288c40c3483, type: 3}
+  m_PrefabInstance: {fileID: 541599553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &189136536 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3342282932532863906, guid: 0a3ed495eaae44c4ca79a288c40c3483, type: 3}
+  m_PrefabInstance: {fileID: 541599553}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189136534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &189136539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189136534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7990743da1e5648408b7f98762635840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crossbow: {fileID: 1495399173}
+  manager: {fileID: 1279571342}
+  button: {fileID: 189136536}
 --- !u!1 &291883517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2265,6 +2296,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3342282931503956383, guid: 0a3ed495eaae44c4ca79a288c40c3483, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3342282931560529932, guid: 0a3ed495eaae44c4ca79a288c40c3483, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2407,6 +2442,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3342282931683095236, guid: 0a3ed495eaae44c4ca79a288c40c3483, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2132728407}
+    - targetCorrespondingSourceObject: {fileID: 3342282931560529932, guid: 0a3ed495eaae44c4ca79a288c40c3483, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 920607314}
+    - targetCorrespondingSourceObject: {fileID: 3342282931573636303, guid: 0a3ed495eaae44c4ca79a288c40c3483, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1041622073}
+    - targetCorrespondingSourceObject: {fileID: 3342282932532863900, guid: 0a3ed495eaae44c4ca79a288c40c3483, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 189136539}
   m_SourcePrefab: {fileID: 100100000, guid: 0a3ed495eaae44c4ca79a288c40c3483, type: 3}
 --- !u!1 &541599554 stripped
 GameObject:
@@ -4343,6 +4387,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &920607309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3342282931560529932, guid: 0a3ed495eaae44c4ca79a288c40c3483, type: 3}
+  m_PrefabInstance: {fileID: 541599553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &920607311 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3342282931560529938, guid: 0a3ed495eaae44c4ca79a288c40c3483, type: 3}
+  m_PrefabInstance: {fileID: 541599553}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920607309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &920607314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920607309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00bbe2d2ac024a14b939b0aca0736602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 920607311}
+  upgradePanel: {fileID: 993079936}
 --- !u!1 &941027605
 GameObject:
   m_ObjectHideFlags: 0
@@ -4679,6 +4753,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &993079936 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3342282931503956383, guid: 0a3ed495eaae44c4ca79a288c40c3483, type: 3}
+  m_PrefabInstance: {fileID: 541599553}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1000800557
 GameObject:
   m_ObjectHideFlags: 0
@@ -5183,6 +5262,35 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1041622068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3342282931573636303, guid: 0a3ed495eaae44c4ca79a288c40c3483, type: 3}
+  m_PrefabInstance: {fileID: 541599553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1041622070 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3342282931573636301, guid: 0a3ed495eaae44c4ca79a288c40c3483, type: 3}
+  m_PrefabInstance: {fileID: 541599553}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041622068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1041622073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041622068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1abdd39fd85dd1445ac1bfbd7589fe08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1041622070}
 --- !u!1 &1056122344
 GameObject:
   m_ObjectHideFlags: 0
@@ -5754,6 +5862,7 @@ MonoBehaviour:
   health: {fileID: 1821345919}
   level: {fileID: 863260313}
   crystals: {fileID: 468429484}
+  crystalCount: 0
 --- !u!1 &1283909286
 GameObject:
   m_ObjectHideFlags: 0
