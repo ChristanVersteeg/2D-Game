@@ -6,13 +6,17 @@ public class FireRate : MonoBehaviour
     [SerializeField] private Crossbow crossbow;
     [SerializeField] private UIManager manager;
     [SerializeField] private Button button;
+    private int upgradePrice = 100;
 
     private void BuyOnClick()
     {
-        if (manager.crystalCount >= 100)
+        if (manager.crystalCount >= upgradePrice)
         {
             crossbow.fireRate /= 2;
-            manager.crystalCount -= 100;
+            manager.crystalCount -= upgradePrice;
+            upgradePrice *= 2;
+            manager.fireRateUpdateCost(upgradePrice);
+            manager.UpdateALLUI();
         }
     }
 

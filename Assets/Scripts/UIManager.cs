@@ -2,11 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI health, level, crystals;
+    [SerializeField] private Text firerateCost, healthCost, damagecost;
     public int crystalCount;
+
+    public void UpdateALLUI()
+    {
+        health.text = Corn.Instance.health.ToString();
+        level.text = LevelController.level.ToString();
+        crystals.text = crystalCount.ToString();
+    }
+
+    public void fireRateUpdateCost(int price)
+    {
+        firerateCost.text = price.ToString();
+    }
+    public void healthUpdateCost(int price)
+    {
+        healthCost.text = price.ToString();
+    }
+    public void DamageUpdateCost(int price)
+    {
+        damagecost.text = price.ToString();
+    }
+
 
     private void DecrementHealth()
     {
