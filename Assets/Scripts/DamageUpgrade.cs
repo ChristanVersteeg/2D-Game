@@ -1,21 +1,22 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FireRate : MonoBehaviour
+public class DamageUpgrade : MonoBehaviour
 {
-    [SerializeField] private Crossbow crossbow;
     [SerializeField] private UIManager manager;
     [SerializeField] private Button button;
     private int upgradePrice = 100;
+    public static int damage = 1;
 
     private void BuyOnClick()
     {
         if (manager.crystalCount >= upgradePrice)
         {
-            crossbow.fireRate /= 2;
-            manager.crystalCount -= upgradePrice;
+            damage++;
             upgradePrice *= 2;
-            manager.FireRateUpdateCost(upgradePrice);
+            manager.DamageUpdateCost(upgradePrice);
             manager.UpdateAllUI();
         }
     }

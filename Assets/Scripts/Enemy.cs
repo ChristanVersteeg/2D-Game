@@ -15,11 +15,12 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         enemies.Add(gameObject);
+        health = UnityEngine.Random.Range(1, LevelController.level + 2);
     }
 
     public void TakeDamage()
     {
-        health -= 1;
+        health -= DamageUpgrade.damage;
 
         if (health <= 0)
         {
